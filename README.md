@@ -13,7 +13,16 @@ A network dump of the scanner running against a Windows 2019 Server (10.0.0.133)
 ## Workarounds
 [ADV200005 | Microsoft Guidance for Disabling SMBv3 Compression](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/adv200005)
 
+## Security Guidance
+[CVE-2020-0796 | Windows SMBv3 Client/Server Remote Code Execution Vulnerability](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2020-0796)
+
+### Enable Mitigation
 ```
 Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" DisableCompression -Type DWORD -Value 1 -Force
+```
+
+### Disable Mitigation
+```
+Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" DisableCompression -Type DWORD -Value 0 -Force
 ```
 
